@@ -2,6 +2,6 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-test:
-  path: /post/create
-  controller: App\Controller\PostController::createPost
+#test:
+#  path: /post/create
+#  controller: App\Controller\PostController::createPost
