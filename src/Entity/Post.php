@@ -60,6 +60,11 @@ class Post extends EntityBase {
    */
   private $title;
   /**
+   * @ORM\ManyToOne(targetEntity="User")
+   * @ORM\JoinColumn(name="created_by_id", referencedColumnName="id")
+   */
+  private $createdBy;
+  /**
    * @return mixed
    */
   public function getId()
@@ -111,5 +116,25 @@ class Post extends EntityBase {
    */
   public function getTitle(){
     return $this->title;
+  }
+
+  /**
+   * Get the value of createdBy
+   */ 
+  public function getCreatedBy()
+  {
+    return $this->createdBy;
+  }
+
+  /**
+   * Set the value of createdBy
+   *
+   * @return  self
+   */ 
+  public function setCreatedBy($createdBy)
+  {
+    $this->createdBy = $createdBy;
+
+    return $this;
   }
 }

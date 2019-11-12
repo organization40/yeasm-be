@@ -6,13 +6,15 @@ use App\Exception\PropetyTypesNotFoundException;
 use App\Exception\UnmappedPropertyException;
 use DateTime;
 use Doctrine\Common\Annotations\AnnotationReader;
+use ReflectionClass;
 
 class EntityBase{
-    
     /**
      * Function to update the attributes of the object with values provided in an array
      * The keys of the array elements have to align with the attribute name of this class
      * Example: $properties[0]['firstName'] = 'Armen' will override the 'firstName' attribute of this object with the value 'Armen'
+     * 
+     * @param array $properties Properties to update; contains $key => $value pair with $key => property name of the object and $value => value to update
      */
     public function updateAttributes($propertiesToUpdate){
         //create an annotationsreader, required to identify the type

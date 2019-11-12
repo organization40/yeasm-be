@@ -26,7 +26,13 @@ class PostDao {
     }
     
     public function getPostsSortDateReverseOrder($em){
+      // $sqlLogger = new \Doctrine\DBAL\Logging\EchoSQLLogger();
+      // $em->getConnection()
+      //   ->getConfiguration()
+      //   ->setSQLLogger($sqlLogger)
+      // ;
       $repository= $em->getRepository(Post::class);
-      return $repository->findBy(array(), array('created' => 'DESC'));
+      $result = $repository->findBy(array(), array('created' => 'DESC'));
+      return $result;
     }
 }

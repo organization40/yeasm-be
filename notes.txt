@@ -1,3 +1,4 @@
+#####################################################Packages
 ...[Initial packages to be completed]...
 composer require --dev symfony/browser-kit symfony/css-selector (for function testing, see https://symfony.com/doc/current/testing.html#functional-tests)
 composer require --dev dama/doctrine-test-bundle (to ensure database is not changed due to testing, see https://symfony.com/doc/current/testing/database.html)
@@ -24,3 +25,13 @@ print_r($client->getProfile()->getCollector('db')->getEntities());
 print_r($client->getProfile()->getCollector('db')->getQueryCount());
 print_r($client->getProfile()->getCollector('db')->getQueries());
 */
+
+$sqlLogger = new \Doctrine\DBAL\Logging\EchoSQLLogger();
+      $em->getConnection()
+        ->getConfiguration()
+        ->setSQLLogger($sqlLogger)
+      ;
+
+######################################################Errors
+- Related entities where not listed in the json output of the api -> Getter was missing in the requested entity
+- "Attempted to load class \"DeepJsonEncoder\" from namespace \"App\\Services\".\nDid you forget a \"use\" statement for another namespace?" -> File name was DeepJsonEncoder..php (i.e. two points)
